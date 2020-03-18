@@ -22,26 +22,28 @@ public class Main {
         ArrayList<ModelNasabah> insAsc = new ArrayList<ModelNasabah>();
         ArrayList<ModelNasabah> selAsc = new ArrayList<ModelNasabah>();
         
-        System.out.println("bubblesort asc by NAME");
+        System.out.println("-------------------------------");
+         System.out.println("bubblesort asc by NAME");
+        System.out.println("+ID\t|\tNAMA\t\t");
         nsbAsc = ns.doBubbleSort(true);
         for (int i=0;i<nsbAsc.size();i++){
-            System.out.println("ID: "+nsbAsc.get(i).getId());
-            System.out.println("Nama: "+nsbAsc.get(i).getNama());
+            System.out.println("+"+nsbAsc.get(i).getId()+"\t|"+nsbAsc.get(i).getNama());
         }
         
-        
-        System.out.println("\nInsertion sort asc by NAME");
+        System.out.println("-------------------------------");
+        System.out.println("Insertion sort asc by NAME");
+        System.out.println("+ID\t|\tNAMA\t\t");
         insAsc = ns.doInsertionSort();
         for (int i=0;i<insAsc.size();i++){
-            System.out.println("ID: "+insAsc.get(i).getId());
-            System.out.println("Nama: "+insAsc.get(i).getNama());
+            System.out.println("+"+insAsc.get(i).getId()+"\t|"+insAsc.get(i).getNama());
         }
         
-        System.out.println("\nSelection sort asc by ID");
+        System.out.println("-------------------------------");
+        System.out.println("Selection sort asc by NAME");
+        System.out.println("+ID\t|\tNAMA\t\t");
         selAsc = ns.doSelectionSort();
         for (int i=0; i<selAsc.size(); i++) {
-            System.out.println("ID: "+selAsc.get(i).getId());
-            System.out.println("Nama: "+selAsc.get(i).getNama());
+            System.out.println("+"+selAsc.get(i).getId()+"\t|"+selAsc.get(i).getNama());
         }
         
     }
