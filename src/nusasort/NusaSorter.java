@@ -59,7 +59,7 @@ public class NusaSorter {
                 isSorted = true;
                 for (int i = 0; i < (listNasabah.size() - x - 1); i++) {
 
-                    if ((listNasabah.get(i).getNama()).compareToIgnoreCase(listNasabah.get(x).getNama()) > 0) {
+                    if ((listNasabah.get(i).getNama()).compareToIgnoreCase(listNasabah.get(i+1).getNama()) > 0) {
                         temp = (listNasabah.get(i));
                         listNasabah.set(i, listNasabah.get(i + 1));
                         listNasabah.set(i + 1, temp);
