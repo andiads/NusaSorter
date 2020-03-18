@@ -21,6 +21,7 @@ public class Main {
         ArrayList<ModelNasabah> insertSort = new ArrayList<ModelNasabah>();
         ArrayList<ModelNasabah> selectionSort = new ArrayList<ModelNasabah>();
         ArrayList<ModelNasabah> reversed = new ArrayList<ModelNasabah>();
+        ArrayList<ModelNasabah> mergeSort = new ArrayList<ModelNasabah>();
         
         System.out.println("-----------------------------------------------");
          System.out.println("bubblesort by Username");
@@ -59,6 +60,19 @@ public class Main {
                     +"\t|"+selectionSort.get(i).getNama()
                     +"\t\t\t|"+selectionSort.get(i).getNik()
                     +"\t\t|"+selectionSort.get(i).getUsername());
+        }
+        
+        System.out.println("-----------------------------------------------");
+        System.out.println("MergeSort sort by NAME");
+        System.out.println("+ID\t|\tNAME\t\t|\tNIK\t\t|\tUSERNAME\t\t");
+        
+        mergeSort = ns.doMergeSort(ns.getDbList());
+        
+        for (int i=0; i<selectionSort.size(); i++) {
+            System.out.println("+"+mergeSort.get(i).getId()
+                    +"\t|"+mergeSort.get(i).getNama()
+                    +"\t\t\t|"+mergeSort.get(i).getNik()
+                    +"\t\t|"+mergeSort.get(i).getUsername());
         }
         
         System.out.println("-----------------------------------------------");
