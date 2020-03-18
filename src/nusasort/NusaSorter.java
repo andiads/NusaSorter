@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import nusasort.ModelNasabah;
 import nusasort.DBConnection;
 
@@ -72,8 +73,23 @@ public class NusaSorter {
         return listNasabah;
     }
 
-    public void doSelectionSort() {
-
+    public ArrayList<ModelNasabah> doSelectionSort() {
+        ModelNasabah nasabah = new ModelNasabah();
+        listNasabah = getDbList();
+        for (int i=0; i<listNasabah.size();i++){
+            int min = listNasabah.get(i).getId();
+            int minIndex = 1;
+            
+            for (int j = i+1; j < listNasabah.size(); j++) {
+                if (listNasabah.get(j).getId() < min) {
+                    min = listNasabah.get(j).getId();
+                }
+            }
+            if (i != minIndex) {
+                Collections.swap(listNasabah, i, minIndex);
+            }
+        }
+        return listNasabah;
     }
 
     public ArrayList<ModelNasabah> doInsertionSort() {

@@ -20,8 +20,9 @@ public class Main {
         ArrayList<ModelNasabah> nsbAsc = new ArrayList<ModelNasabah>();
         ArrayList<ModelNasabah> nsbDesc = new ArrayList<ModelNasabah>();
         ArrayList<ModelNasabah> insAsc = new ArrayList<ModelNasabah>();
+        ArrayList<ModelNasabah> selAsc = new ArrayList<ModelNasabah>();
         
-        System.out.println("bubblesort asc");
+        System.out.println("bubblesort asc by NAME");
         nsbAsc = ns.doBubbleSort(true);
         for (int i=0;i<nsbAsc.size();i++){
             System.out.println("ID: "+nsbAsc.get(i).getId());
@@ -29,14 +30,19 @@ public class Main {
         }
         
         
-        System.out.println("\nInsertion sort asc");
+        System.out.println("\nInsertion sort asc by NAME");
         insAsc = ns.doInsertionSort();
         for (int i=0;i<insAsc.size();i++){
             System.out.println("ID: "+insAsc.get(i).getId());
             System.out.println("Nama: "+insAsc.get(i).getNama());
         }
         
-        
+        System.out.println("\nSelection sort asc by ID");
+        selAsc = ns.doSelectionSort();
+        for (int i=0; i<selAsc.size(); i++) {
+            System.out.println("ID: "+selAsc.get(i).getId());
+            System.out.println("Nama: "+selAsc.get(i).getNama());
+        }
         
     }
 }
