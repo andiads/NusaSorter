@@ -93,23 +93,44 @@ public class NusaSorter {
     }
 
     public ArrayList<ModelNasabah> doInsertionSort() {
-        ModelNasabah current = new ModelNasabah();
+        
         listNasabah = getDbList();
-
-        for (int j = 1; j < listNasabah.size(); j++) {
-            current.setNama(listNasabah.get(j).getNama());
-            current.setId(listNasabah.get(j).getId());
-            int i = j;
-            while ((i > 0) && (listNasabah.get(i - 1).getId() > current.getId())) {
-                listNasabah.set(i, listNasabah.get(i - 1));
+        int i,j;
+        
+        /* with int id
+        for (i = 1; i < listNasabah.size(); i++) {
+            ModelNasabah current = new ModelNasabah();
+            current.setNama(listNasabah.get(i).getNama());
+            current.setId(listNasabah.get(i).getId());
+            j = i;
+            while ((j > 0) && (listNasabah.get(j - 1).getId() > current.getId())) {
+                listNasabah.set(i, listNasabah.get(j - 1));
                 i--;
             }
-            listNasabah.set(i, current);
+            listNasabah.set(j, current);
         }
+        */
+        
+        // with string nama
+        for (i = 1; i < listNasabah.size(); i++) {
+            ModelNasabah current = new ModelNasabah();
+            String curName;
+            current.setNama(listNasabah.get(i).getNama());
+            current.setId(listNasabah.get(i).getId());
+            curName = current.getNama();
+            j = i - 1;
+            while ((j >= 0) && (curName.compareToIgnoreCase(listNasabah.get(j).getNama()) < 0)) {
+                listNasabah.set(j+1, listNasabah.get(j));
+                j--;
+            }
+            listNasabah.set(j+1, current);
+        }
+        
+        
         return listNasabah;
     }
 
     public void doMergeSort() {
-
+        
     }
 }
