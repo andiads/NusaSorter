@@ -133,4 +133,15 @@ public class NusaSorter {
     public void doMergeSort() {
         
     }
+    
+    public ArrayList<ModelNasabah> doReverse() {
+        listNasabah = getDbList();
+        ArrayList<ModelNasabah> reversedList = new ArrayList<ModelNasabah>();
+        // store arraylist as  reversed elements
+        for (int i = listNasabah.size() - 1; i>=0; i-- ) {
+            //append the elements in reverse order
+            reversedList.add(listNasabah.get(i));
+        }
+        return reversedList;
+    }
 }
