@@ -48,44 +48,25 @@ public class NusaSorter {
     }
 
     public ArrayList<ModelNasabah> doBubbleSort(boolean ascending) {
-        listNasabah = new ArrayList<ModelNasabah>();
-        ModelNasabah nasabah;
-        this.isSorted = true;
 
-        try {
-            PreparedStatement ps = DBConnection.getConnection().prepareStatement("select*from nasabah");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                nasabah = new ModelNasabah();
-                nasabah.setId(rs.getInt("id_nasabah"));
-                nasabah.setNama(rs.getString("nama"));
-                listNasabah.add(nasabah);
-            }
+        listNasabah = getDbList();
 
-            ps.close();
+        ModelNasabah temp = null;
+        // algo
+        if (listNasabah.size() > 1) {
+            for (int x = 0; x < listNasabah.size(); x++) {
+                isSorted = true;
+                for (int i = 0; i < (listNasabah.size() - x - 1); i++) {
 
-            System.out.println("====BubbleSort=====");
-
-            ModelNasabah temp = null;
-            // algo
-            if (listNasabah.size() > 1) {
-                for (int x = 0; x < listNasabah.size(); x++) {
-                    isSorted = true;
-                    for (int i = 0; i < (listNasabah.size() - x - 1); i++) {
-
-                        if ((listNasabah.get(i).getNama()).compareToIgnoreCase(listNasabah.get(x).getNama()) > 0) {
-                            temp = (listNasabah.get(i));
-                            listNasabah.set(i, listNasabah.get(i + 1));
-                            listNasabah.set(i + 1, temp);
-                        }
-
+                    if ((listNasabah.get(i).getNama()).compareToIgnoreCase(listNasabah.get(x).getNama()) > 0) {
+                        temp = (listNasabah.get(i));
+                        listNasabah.set(i, listNasabah.get(i + 1));
+                        listNasabah.set(i + 1, temp);
                     }
 
                 }
-            }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+            }
         }
 
         return listNasabah;
@@ -103,8 +84,8 @@ public class NusaSorter {
             current.setNama(listNasabah.get(j).getNama());
             current.setId(listNasabah.get(j).getId());
             int i = j;
-            while ((i > 0) && (listNasabah.get(i-1).getId() > current.getId())) {
-                listNasabah.set(i, listNasabah.get(i-1));
+            while ((i > 0) && (listNasabah.get(i - 1).getId() > current.getId())) {
+                listNasabah.set(i, listNasabah.get(i - 1));
                 i--;
             }
             listNasabah.set(i, current);
