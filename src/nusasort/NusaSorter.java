@@ -24,13 +24,14 @@ import nusasort.DBConnection;
 public class NusaSorter {
 
     private ArrayList<ModelNasabah> listNasabah;
-    Class nasabahClass;
-    private Field id;
-    private Field name;
-    private Field nik;
-    private Field username;
-    private Field field;
-    private boolean isSorted;
+    
+    //Class nasabahClass;
+    //private Field id;
+    //private Field name;
+    //private Field nik;
+    //private Field username;
+    //private Field field;
+    
     private ModelNasabah nsb;
     private String key;
 
@@ -70,7 +71,6 @@ public class NusaSorter {
 
         if (listNasabah.size() > 1) {
             for (int x = 0; x < listNasabah.size(); x++) {
-                isSorted = true;
                 for (int i = 0; i < (listNasabah.size() - x - 1); i++) {
 
                     if (key.equalsIgnoreCase("id")) {
