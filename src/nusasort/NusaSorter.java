@@ -177,7 +177,7 @@ public class NusaSorter {
     // INSERTION SORT
     public ArrayList<ModelNasabah> doInsertionSort(ArrayList<ModelNasabah> obj, String key) {
 
-        listNasabah = getDbList();
+        listNasabah = obj;
         ModelNasabah current;
         int i, j;
 
